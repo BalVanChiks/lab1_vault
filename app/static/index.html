@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Vault Admin Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .hidden { display: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        input, button { padding: 10px; margin: 5px 0; width: 100%; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Vault Admin Panel</h1>
+    
+    <!-- Блок авторизации -->
+    <div id="login-block">
+        <h2>Вход</h2>
+        <input type="email" id="email" placeholder="Email (например, admin@vault.com)">
+        <input type="password" id="password" placeholder="Пароль">
+        <button onclick="login()">Войти</button>
+        <p id="login-error" class="error"></p>
+    </div>
+
+    <!-- Блок администратора -->
+    <div id="admin-block" class="hidden">
+        <button onclick="logout()" style="width: auto; background-color: #dc3545;">Выйти</button>
+        <h2>OAuth Клиенты</h2>
+        <button onclick="createClient()" style="width: auto; margin-bottom: 10px;">+ Создать клиента</button>
+        <table id="clients-table">
+            <thead>
+                <tr><th>Имя</th><th>Client ID</th><th>Конфиденциальный</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
